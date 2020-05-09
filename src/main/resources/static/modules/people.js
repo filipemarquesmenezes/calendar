@@ -1,10 +1,22 @@
-// not used
-$.get("/people", function (data) {
-    // var template = $.trim($("#people").html());
-    // $.each(data._embedded.people, function (index, person) {
-    //     var build = template.replace("$lastName", person.lastName);
-    //     x = template.replace("$firstName", person.firstName);
-    //     $("#app").append(build);
-    // });
-    console.log(data);
+$(function() {
+    $("form button").click(function() {
+        alert("submitted");
+        var data = JSON.stringify( $("form").serialize() ); //  <-----------
+        console.log( data );
+
+         $.ajax({
+                url: "/people",
+                type: "post",
+                dataType: "json",
+                data: JSON.stringify($("form").serializeArray()[0]),
+                contentType: "application/json",
+                success: function(data) {
+                    console.log(data);
+                }
+           });
+
+         return false; //don't submit
+    });
+
+
 });

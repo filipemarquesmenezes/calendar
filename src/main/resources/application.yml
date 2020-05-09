@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/test
+    password: sa
+    username: sa
+  thymeleaf:
+    cache: false
+  jpa:
+    open-in-view: false
+    show-sql: true
+#  h2:
+#    console:
+#      enabled: true
