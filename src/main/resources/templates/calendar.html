@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div class="row">
+    <h1>Calendar</h1>
+</div>
+<br>
+<div class="row">
+    <table class="table table-bordered table-dark">
+        <tr>
+            <th>M</th>
+            <th>T</th>
+            <th>W</th>
+            <th>T</th>
+            <th>F</th>
+            <th>S</th>
+            <th>S</th>
+        </tr>
+
+        <th:block th:each="day,i : ${calendar}">
+            <th:block th:if="${day.value.dayOfWeek} eq 'MONDAY' or ${i} eq '0'">
+                <tr>
+            </th:block>
+            <td th:text="${day.value.dayOfMonth}"/>
+            <th:block th:if="${day.value.dayOfWeek} eq 'SUNDAY'">
+                </tr>
+            </th:block>
+        </th:block>
+    </table>
+</div>
+</html>

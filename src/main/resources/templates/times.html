@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div class="row">
+    <h1>Times</h1>
+</div>
+<br>
+<div class="row">
+    <h5 th:text="'There are ' + ${workDays} + ' work days in this month'"></h5>
+    <table class="table table-sm table-bordered table-dark">
+        <tr th:each="time : ${times}">
+            <td th:text="${time.value.dayOfMonth}"
+                th:classappend="${time.value.weekend} ? 'table-danger' : ''"></td>
+        </tr>
+    </table>
+</div>
+
+</html>
